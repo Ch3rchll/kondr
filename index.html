@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Кондранина Мария Павловна | Учитель начальных классов</title>
+  <title>Кондранина Мария Павловна | Сборник дидактических игр</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -196,10 +196,6 @@
       transition: transform 0.4s;
     }
 
-    .hero-image:hover img {
-      transform: scale(1.02);
-    }
-
     /* About */
     .about {
       padding: 100px 0;
@@ -350,7 +346,7 @@
       display: inline-block;
     }
 
-    /* Parents section (без расписания) */
+    /* Parents section */
     .parents {
       background: #f0f7fc;
       padding: 80px 0;
@@ -539,6 +535,164 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Accordion styles for game collection */
+    .games-collection {
+      background: #f9fdfe;
+      border-radius: 48px;
+      padding: 32px;
+      margin: 48px 0 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+      border: 1px solid #e2edf4;
+    }
+
+    .collection-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .collection-header h2 {
+      font-size: 1.9rem;
+      color: #1e3a5f;
+    }
+
+    .collection-header p {
+      color: #4f6f8f;
+      max-width: 700px;
+      margin: 16px auto 0;
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .accordion-item {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+      border: 1px solid #e2edf4;
+    }
+
+    .accordion-header {
+      background: #ffffff;
+      padding: 20px 28px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #1e3a5f;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: #f2f8fc;
+    }
+
+    .accordion-header i:first-child {
+      margin-right: 12px;
+      color: #3a8bbb;
+      font-size: 1.3rem;
+    }
+
+    .accordion-header .toggle-icon {
+      font-size: 1.2rem;
+      color: #7c9cbb;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.active .accordion-header .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: #fefefe;
+      border-top: 1px solid #eef2f5;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 3000px;
+      transition: max-height 0.6s ease-in-out;
+    }
+
+    .games-list {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .game-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border-left: 4px solid #3a8bbb;
+    }
+
+    .game-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1e3a5f;
+    }
+
+    .game-sub {
+      font-size: 0.85rem;
+      color: #5680a7;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .game-desc {
+      margin-bottom: 12px;
+      color: #2c3e50;
+    }
+
+    .game-goal {
+      font-weight: 600;
+      margin-top: 12px;
+      color: #2c5f8a;
+      background: #eef4fa;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+    }
+
+    .recommend-box {
+      background: #fff5e6;
+      border-radius: 28px;
+      padding: 24px;
+      margin-top: 32px;
+      color: #5d3f1a;
+    }
+
+    /* Стили для кнопки "Подробнее" */
+    .section-details-link {
+      display: inline-block;
+      background: #eef2fa;
+      color: #2c5f8a;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+    }
+    .section-details-link:hover {
+      background: #d9e4ef;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body>
@@ -561,7 +715,7 @@
   </header>
 
   <main>
-    <!-- Герой с фото учителя (прямая ссылка из VK) -->
+    <!-- Герой с фото учителя -->
     <section id="home" class="hero">
       <div class="container hero-grid">
         <div class="hero-content fade-up">
@@ -574,14 +728,13 @@
           </div>
         </div>
         <div class="hero-image fade-up">
-          <!-- ФОТО УЧИТЕЛЯ: прямая ссылка из VK, должна работать -->
           <img src="https://sun9-32.userapi.com/s/v1/ig2/Z0eCFPGs-KGMXmSCTBJbir8ZCRe_3BVqxPHBFI4AywNLrLy8wUdKlTVwnN2D1Rhd4c33xhrknIiv2RQ9Q83zWipF.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2560x1920&from=bu&u=VM8kxg49Dt798QLL9AF9g4EjxKAJ3f-98cU8yogeypY&cs=2560x0" alt="Кондранина Мария Павловна">
-          <div class="note" style="margin-top: 10px;">📸 Фото учителя   </div>
+          <div class="note" style="margin-top: 10px;">📸 Фото учителя</div>
         </div>
       </div>
     </section>
 
-    <!-- Об учителе (с датой рождения) -->
+    <!-- Об учителе -->
     <section id="about" class="about">
       <div class="container">
         <div class="fade-up">
@@ -616,15 +769,15 @@
       </div>
     </section>
 
-    <!-- УЧЕНИКАМ: все файлы, ссылки, веб-квесты -->
+    <!-- УЧЕНИКАМ: исходные игры (веб-квесты, викторины) + сборник дидактических игр -->
     <section id="students" class="students" style="padding: 100px 0; background-color: #f9fdfe;">
       <div class="container">
+        <!-- Блок 1: исходные игры, которые были изначально -->
         <div class="fade-up">
-          <h2 class="section-title">🧑‍🎓 Ученикам</h2>
-          <div class="section-subtitle">Веб-квесты, викторины и интерактивные приключения по литературным произведениям. Скачивай презентации или переходи по ссылкам!</div>
+          <h2 class="section-title">🧑‍🎓 Веб-квесты и интерактивные задания</h2>
+          <div class="section-subtitle">Увлекательные приключения по литературным произведениям. Скачивай презентации или переходи по ссылкам!</div>
         </div>
         <div class="cards-grid">
-          <!-- 1. Русалочка -->
           <div class="card fade-up">
             <div class="card-icon"><i class="fas fa-fish"></i></div>
             <div class="card-content">
@@ -633,7 +786,6 @@
               <a href="Kondranina_Kvest_dlya_4_klassa_po_proizvedeniyu_Andersena_Rusalochka.pptx" download class="card-link"><i class="fas fa-download"></i> Скачать презентацию</a>
             </div>
           </div>
-          <!-- 2. Спящая красавица -->
           <div class="card fade-up">
             <div class="card-icon"><i class="fas fa-crown"></i></div>
             <div class="card-content">
@@ -642,7 +794,6 @@
               <a href="Literaturnoe_chtenie_4_klass_Veb_kvest.pptx" download class="card-link"><i class="fas fa-download"></i> Скачать презентацию</a>
             </div>
           </div>
-          <!-- 3. Викторина по Пушкину -->
           <div class="card fade-up">
             <div class="card-icon"><i class="fas fa-feather-alt"></i></div>
             <div class="card-content">
@@ -651,7 +802,6 @@
               <a href="Literaturnoe_chtenie_4_klass_Viktorina_po_skazkam_A_S_Pushkina.pptx" download class="card-link"><i class="fas fa-download"></i> Скачать викторину</a>
             </div>
           </div>
-          <!-- 4. Путешествие Алисы (Кир Булычёв) -->
           <div class="card fade-up">
             <div class="card-icon"><i class="fas fa-rocket"></i></div>
             <div class="card-content">
@@ -660,7 +810,6 @@
               <a href="Puteshestvie_Alisy.ppt" download class="card-link"><i class="fas fa-download"></i> Скачать игру</a>
             </div>
           </div>
-          <!-- 5. Математическая грамотность Алиса в стране чудес -->
           <div class="card fade-up">
             <div class="card-icon"><i class="fas fa-calculator"></i></div>
             <div class="card-content">
@@ -670,7 +819,6 @@
               <div class="note">🔗 <a href="https://learningapps.org/watch?v=p1azvytt525" target="_blank">Задание 1</a> | <a href="https://learningapps.org/watch?v=pp74jgcga25" target="_blank">Задание 2</a> | <a href="https://learningapps.org/watch?v=p40rjev5j25" target="_blank">Задание 3</a></div>
             </div>
           </div>
-          <!-- 6. Финансовая грамотность Бемби -->
           <div class="card fade-up">
             <div class="card-icon"><i class="fas fa-piggy-bank"></i></div>
             <div class="card-content">
@@ -680,7 +828,6 @@
               <div class="note">💰 <a href="https://learningapps.org/watch?v=pk7jrbcjk25" target="_blank">Задание 1</a> | <a href="https://learningapps.org/watch?v=p7quipo7c25" target="_blank">Задание 2</a> | <a href="https://learningapps.org/watch?v=pfyzty8wa25" target="_blank">Задание 3</a></div>
             </div>
           </div>
-          <!-- 7. Udoba задание -->
           <div class="card fade-up">
             <div class="card-icon"><i class="fas fa-glasses"></i></div>
             <div class="card-content">
@@ -690,21 +837,144 @@
             </div>
           </div>
         </div>
-        <!-- Дополнительный блок со всеми ссылками LearningApps -->
-        <div class="fade-up" style="margin-top: 40px; background: #eef4fa; border-radius: 32px; padding: 28px 32px;">
-          <i class="fas fa-link" style="color: #3a8bbb; margin-right: 10px;"></i>
-          <strong style="color: #1e3a5f;">Быстрый доступ ко всем интерактивам:</strong>
-          <ul style="margin-top: 16px; list-style: none;">
-            <li>🔹 <a href="https://learningapps.org/watch?v=p1azvytt525" target="_blank">Математика: сыр для Чеширского кота</a></li>
-            <li>🔹 <a href="https://learningapps.org/watch?v=pp74jgcga25" target="_blank">Математика: задание №2 (Алиса)</a></li>
-            <li>🔹 <a href="https://learningapps.org/watch?v=p40rjev5j25" target="_blank">Математика: задание №3 (Алиса)</a></li>
-            <li>🔹 <a href="https://learningapps.org/watch?v=pk7jrbcjk25" target="_blank">Бемби: найди друзей (финансовая грамотность)</a></li>
-          </ul>
+
+        <!-- Блок 2: Сборник дидактических игр (с активными кнопками на страницы разделов) -->
+        <div class="games-collection fade-up">
+          <div class="collection-header">
+            <h2>📖 Сборник дидактических игр «Учимся общаться, читая книги»</h2>
+            <p>Развиваем коммуникативные УУД на уроках литературного чтения. 4 класс, УМК «Школа России». Выберите раздел, чтобы познакомиться с играми.</p>
+          </div>
+          <div class="accordion" id="gameAccordion">
+            <!-- РАЗДЕЛ 1 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-comments"></i> РАЗДЕЛ 1. Игры на развитие диалогической речи и умения слушать</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🐱 Л. Н. Толстой «Котёнок» — игра «Интервью с героем»</div><div class="game-sub">Коммуникация как взаимодействие</div><div class="game-desc"><strong>Цель:</strong> формирование умения задавать вопросы и формулировать развёрнутые ответы от лица персонажа, учитывая его характер и поступки. Класс делится на пары. Один ученик получает роль Васи, второй — журналиста. Журналист берёт интервью, затем пары меняются ролями (Катя).</div><div class="game-goal">Коммуникативное УУД: умение строить понятные для партнёра высказывания, учитывающие его позицию.</div></div>
+                  <div class="game-card"><div class="game-title">🔤 В. Ю. Драгунский «Заколдованная буква» — игра «Испорченный телефон: версия героев»</div><div class="game-sub">Коммуникация как сотрудничество</div><div class="game-desc"><strong>Цель:</strong> развитие умения точно передавать содержание чужого высказывания, анализировать причины коммуникативных неудач. Проводится игра «Испорченный телефон» со словами из рассказа, после чего анализируются искажения.</div><div class="game-goal">УУД: умение слушать и слышать друг друга, адекватно использовать речевые средства.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel1.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 2 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-handshake"></i> РАЗДЕЛ 2. Игры на развитие умения договариваться и распределять роли</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🧊 Б. С. Житков «На льдине» — «Совет спасателей»</div><div class="game-desc"><strong>Цель:</strong> формирование умения согласовывать действия в группе, аргументировать предложение. Группы по 4–5 человек — штаб спасательной операции. Восстанавливают хронологию событий и предлагают план эвакуации. Роли: таймер, секретарь, спикер, критик.</div><div class="game-goal">УУД: договариваться о распределении функций, осуществлять взаимный контроль.</div></div>
+                  <div class="game-card"><div class="game-title">🪑 В. В. Голявкин «Как я под партой сидел» — «Суд над поступком»</div><div class="game-desc"><strong>Цель:</strong> развитие умения аргументированно выражать своё мнение, учитывая разные точки зрения. Группы: защитники, обвинители и судьи. Использование речевых клише.</div><div class="game-goal">УУД: учитывать разные мнения и стремиться к координации различных позиций.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel2.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 3 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-theater-masks"></i> РАЗДЕЛ 3. Игры на развитие рефлексии и вербальной интерпретации</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🕊️ М. М. Пришвин «Журка» — «Режиссёрский комментарий»</div><div class="game-desc"><strong>Цель:</strong> формирование умения передавать подтекст и эмоциональное состояние персонажа через интонацию. В парах: один читает эпизод с заданной эмоцией, второй — режиссёр, оценивает.</div><div class="game-goal">УУД: осознанно и произвольно строить речевое высказывание, передавая эмоциональное содержание.</div></div>
+                  <div class="game-card"><div class="game-title">🍎 А. П. Гайдар «Совесть» — «Незаконченный диалог»</div><div class="game-desc"><strong>Цель:</strong> развитие умения прогнозировать речевое поведение персонажа и предлагать завершение диалога. Пары восстанавливают финал диалога Нины и мальчика, сравнивают с авторским.</div><div class="game-goal">УУД: строить монологическое высказывание, адекватно используя средства устного общения.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel3.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 4 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-search"></i> РАЗДЕЛ 4. Комплексные игры (сюжетно-ролевые)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🐾 Е. А. Пермяк «Знакомые следы» — «Литературный детектив»</div><div class="game-desc">Микрогруппы: следователь, свидетель (отвечает да/нет), секретарь. Допрос по следам из рассказа.</div><div class="game-goal">УУД: задавать вопросы, необходимые для организации собственной деятельности и сотрудничества.</div></div>
+                  <div class="game-card"><div class="game-title">🐿️ В. В. Бианки «Слепой бельчонок» — «Живая картинка» (пантомима)</div><div class="game-desc">Группы показывают эпизод без слов, зрители комментируют. Развитие невербальной коммуникации.</div><div class="game-goal">УУД: использовать невербальные средства общения, понимать язык жестов и поз.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel4.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 5 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-seedling"></i> РАЗДЕЛ 5. Игры на развитие умения формулировать и аргументировать собственное мнение</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🌸 Б. С. Житков «Цветок» — «Цветик-семицветик мнений»</div><div class="game-desc">Выбрать три качества героя, найти подтверждение в тексте. Групповое обсуждение дискуссионных качеств.</div><div class="game-goal">УУД: аргументировать свою позицию и координировать её с позициями партнёров.</div></div>
+                  <div class="game-card"><div class="game-title">🙏 В. А. Сухомлинский «Для чего говорят спасибо» — «Эстафета благодарностей»</div><div class="game-desc">Круг: называть разные формулы благодарности (кроме «спасибо»), привязывая к школьным ситуациям.</div><div class="game-goal">УУД: использовать адекватные языковые средства для выражения благодарности.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel5.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 6 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-tree"></i> РАЗДЕЛ 6. Игры на развитие умения работать в группе и распределять роли</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🌲 К. Д. Ушинский «Лес и ручей» — «Озвучка природы»</div><div class="game-desc">Группа создаёт звуковой спектакль: чтец, звукоимитация, голос Ручья и Деревьев. Договориться об интонациях.</div><div class="game-goal">УУД: договариваться о распределении функций и ролей, осуществлять взаимопомощь.</div></div>
+                  <div class="game-card"><div class="game-title">🧠 В. В. Голявкин «Как я под партой сидел» — «Альтернативный финал: мозговой штурм»</div><div class="game-desc">Группы генерируют варианты поведения вместо того, чтобы лезть под парту, отбирают лучшие решения.</div><div class="game-goal">УУД: продуктивно разрешать конфликты на основе учёта интересов, приходить к общему решению.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel6.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 7 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-microphone-alt"></i> РАЗДЕЛ 7. Игры на развитие связной монологической речи и пересказа</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🎥 Б. С. Житков «На льдине» — «Репортаж с места событий»</div><div class="game-desc">Ученик-журналист ведёт репортаж с оторвавшейся льдины, описывает обстановку, берёт интервью.</div><div class="game-goal">УУД: строить монологическое высказывание, соблюдая логику и последовательность.</div></div>
+                  <div class="game-card"><div class="game-title">🐈 Е. И. Чарушин «Кошка Маруська» — «Фоторобот героя»</div><div class="game-desc">В парах: описать кошку по цитатам своими словами, партнёр задаёт уточняющие вопросы.</div><div class="game-goal">УУД: строить понятное для партнёра высказывание, учитывая дефицит информации.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel7.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 8 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-gavel"></i> РАЗДЕЛ 8. Игры на развитие культуры спора и дискуссии</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🤐 Ю. И. Ермолаев «Проговорился» — «Тайный совет»</div><div class="game-desc">Группы обсуждают этические дилеммы: сохранять чужую тайну или рассказать взрослым. Мини-дебаты.</div><div class="game-goal">УУД: учитывать разные мнения и интересы, обосновывать и отстаивать свою позицию корректно.</div></div>
+                  <div class="game-card"><div class="game-title">⚖️ А. П. Гайдар «Совесть» — «Линия совести»</div><div class="game-desc">На линии (от «не прав» до «прав») ученики размещают стикеры с оценкой поступков Нины, аргументируют.</div><div class="game-goal">УУД: аргументированно отстаивать точку зрения, проявлять уважение к чужому мнению.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel8.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 9 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-smile"></i> РАЗДЕЛ 9. Игры на развитие навыков невербальной коммуникации и эмпатии</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🐕 Л. Н. Толстой «Котёнок» — «Эмоциональный термометр»</div><div class="game-desc">По эпизодам дети определяют эмоции героев (страх, радость) на карточке-термометре и обсуждают.</div><div class="game-goal">УУД: осознавать и вербализовать эмоциональные состояния персонажа и свои.</div></div>
+                  <div class="game-card"><div class="game-title">🐿️ В. В. Бианки «Слепой бельчонок» — «Передай движение»</div><div class="game-desc">Цепочка из 6–8 человек без слов передаёт эпизод жестами, последний называет эпизод. Анализ искажений.</div><div class="game-goal">УУД: использовать невербальные средства общения, понимать ограничения невербальной коммуникации.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel9.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 10 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-lightbulb"></i> РАЗДЕЛ 10. Игры на развитие творческого рассказывания и фантазии</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">✍️ Е. А. Пермяк «Знакомые следы» — «Придумай продолжение по первому предложению»</div><div class="game-desc">Группы по очереди добавляют предложения к рассказу, создавая забавную развязку.</div><div class="game-goal">УУД: совместная речевая деятельность, согласование высказываний без предварительного планирования.</div></div>
+                  <div class="game-card"><div class="game-title">📩 Ю. И. Ермолаев «Проговорился» — «Секретный конверт»</div><div class="game-desc">Пара: один знает секрет, другой задаёт закрытые вопросы (да/нет), чтобы угадать. Соблюдение тайны.</div><div class="game-goal">УУД: задавать вопросы для получения информации, соблюдать коммуникативные ограничения.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel10.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- РАЗДЕЛ 11 -->
+            <div class="accordion-item">
+              <div class="accordion-header"><span><i class="fas fa-puzzle-piece"></i> РАЗДЕЛ 11. Итоговые игры (повторение и обобщение)</span><i class="fas fa-chevron-down toggle-icon"></i></div>
+              <div class="accordion-content">
+                <div class="games-list">
+                  <div class="game-card"><div class="game-title">🎲 «Литературное лото» (по всем произведениям)</div><div class="game-desc">Команды закрывают произведения на поле по подсказкам (имя героя, цитата, событие). Требуется договориться шёпотом.</div><div class="game-goal">УУД: договариваться в условиях ограниченного времени, слушать мнение каждого.</div></div>
+                  <div class="game-card"><div class="game-title">🪑 «Горячий стул» (по всем произведениям)</div><div class="game-desc">Один ученик отгадывает произведение/героя, класс задаёт вопросы «да/нет». Развитие умения формулировать вопросы.</div><div class="game-goal">УУД: задавать вопросы, адекватные ситуации, понимать замысел вопроса.</div></div>
+                  <div style="text-align: right; margin-top: 8px;"><a href="razdel11.html" class="section-details-link">📖 Полный текст игр раздела</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="recommend-box">
+            <i class="fas fa-chalkboard-teacher" style="margin-right: 10px;"></i> <strong>Методические рекомендации для учителя:</strong> систематичность (7–12 минут на игру), рефлексия процесса коммуникации, дифференциация ролей, связь с жизнью, диагностическая функция. Все игры из сборника полностью соответствуют ФГОС НОО и направлены на формирование коммуникативных УУД.
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- РОДИТЕЛЯМ (без расписания) -->
+    <!-- РОДИТЕЛЯМ -->
     <section id="parents" class="parents">
       <div class="container">
         <div class="fade-up">
@@ -712,60 +982,29 @@
           <div class="section-subtitle">Важная информация, советы и как помочь ребёнку в учёбе</div>
         </div>
         <div class="parent-tips">
-          <div class="tip-card fade-up">
-            <i class="fas fa-clock"></i>
-            <h3>Режим и поддержка</h3>
-            <p>Регулярный распорядок дня, достаточный сон и похвала за старания — основа успешной учёбы. Создайте дома спокойный уголок для выполнения заданий.</p>
-          </div>
-          <div class="tip-card fade-up">
-            <i class="fas fa-chalkboard-user"></i>
-            <h3>Как помочь с веб-квестами</h3>
-            <p>Все интерактивные задания (LearningApps, Udoba) доступны в разделе «Ученикам». Достаточно перейти по ссылке — ребёнок сможет выполнить их самостоятельно или с вашей помощью.</p>
-          </div>
-          <div class="tip-card fade-up">
-            <i class="fas fa-comments"></i>
-            <h3>Обратная связь</h3>
-            <p>Я всегда на связи. Если у вас есть вопросы по успеваемости или поведению, напишите через форму контактов или позвоните.</p>
-          </div>
-          <div class="tip-card fade-up">
-            <i class="fas fa-book"></i>
-            <h3>Чтение — основа</h3>
-            <p>Поощряйте ежедневное чтение. После прочтения обсуждайте с ребёнком героев, просите пересказать — это развивает речь и мышление.</p>
-          </div>
+          <div class="tip-card fade-up"><i class="fas fa-clock"></i><h3>Режим и поддержка</h3><p>Регулярный распорядок дня, достаточный сон и похвала за старания — основа успешной учёбы.</p></div>
+          <div class="tip-card fade-up"><i class="fas fa-chalkboard-user"></i><h3>Как помочь с веб-квестами</h3><p>Все интерактивные задания доступны в разделе «Ученикам». Ребёнок может выполнить их самостоятельно или с вашей помощью.</p></div>
+          <div class="tip-card fade-up"><i class="fas fa-comments"></i><h3>Обратная связь</h3><p>Я всегда на связи. Если у вас есть вопросы по успеваемости или поведению, напишите через форму контактов или позвоните.</p></div>
+          <div class="tip-card fade-up"><i class="fas fa-book"></i><h3>Чтение — основа</h3><p>Поощряйте ежедневное чтение. Обсуждайте героев, просите пересказать — это развивает речь и мышление.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Контакты (обновлённые) -->
+    <!-- Контакты -->
     <section id="contact" class="contact">
       <div class="container contact-wrapper">
         <div class="contact-info fade-up">
           <h3>Свяжитесь со мной</h3>
           <p>Буду рада ответить на вопросы, обсудить дополнительные занятия или просто поделиться успехами ваших детей.</p>
-          <div class="contact-detail">
-            <i class="fas fa-envelope"></i>
-            <span>mkondranina@yandex.ru</span>
-          </div>
-          <div class="contact-detail">
-            <i class="fas fa-phone-alt"></i>
-            <span>8-951-166-09-55</span>
-          </div>
-          <div class="contact-detail">
-            <i class="fab fa-telegram"></i>
-            <span>@maria_kondranina_teacher</span>
-          </div>
+          <div class="contact-detail"><i class="fas fa-envelope"></i><span>mkondranina@yandex.ru</span></div>
+          <div class="contact-detail"><i class="fas fa-phone-alt"></i><span>8-951-166-09-55</span></div>
+          <div class="contact-detail"><i class="fab fa-telegram"></i><span>@maria_kondranina_teacher</span></div>
         </div>
         <div class="contact-form fade-up">
           <form id="contactForm" action="#" method="post">
-            <div class="form-group">
-              <input type="text" id="name" placeholder="Ваше имя" required>
-            </div>
-            <div class="form-group">
-              <input type="email" id="email" placeholder="Email или телефон" required>
-            </div>
-            <div class="form-group">
-              <textarea id="message" placeholder="Ваш вопрос или сообщение" required></textarea>
-            </div>
+            <div class="form-group"><input type="text" id="name" placeholder="Ваше имя" required></div>
+            <div class="form-group"><input type="email" id="email" placeholder="Email или телефон" required></div>
+            <div class="form-group"><textarea id="message" placeholder="Ваш вопрос или сообщение" required></textarea></div>
             <button type="submit" class="btn-submit">Отправить сообщение <i class="fas fa-paper-plane"></i></button>
             <p style="font-size: 0.7rem; margin-top: 16px; color: #6c8fae;">Нажимая на кнопку, вы даёте согласие на обработку данных.</p>
           </form>
@@ -784,13 +1023,24 @@
           <a href="#" aria-label="Электронная почта"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
-      <div class="footer-copyright">
-        © 2026 | Учитель начальных классов | Для учеников и родителей
-      </div>
+      <div class="footer-copyright">© 2026 | Учитель начальных классов | Для учеников и родителей</div>
     </div>
   </footer>
 
   <script>
+    // Аккордеон для сборника игр
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    accordionItems.forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      header.addEventListener('click', (e) => {
+        // Не закрываем аккордеон, если клик по кнопке "Подробнее" (ссылка внутри .games-list)
+        if (e.target.closest('.section-details-link')) return;
+        const isActive = item.classList.contains('active');
+        accordionItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
     // мобильное меню
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navLinksEl = document.getElementById('navLinks');
